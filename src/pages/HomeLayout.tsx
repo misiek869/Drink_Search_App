@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom'
-import About from './About'
+import { Outlet } from 'react-router-dom'
 
 const HomeLayout = () => {
 	return (
 		<div>
 			<h1>Home</h1>
-			<Link to='/about'>About</Link>
+			<Outlet />
 		</div>
 	)
 }
