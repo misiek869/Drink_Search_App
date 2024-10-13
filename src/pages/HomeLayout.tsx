@@ -3,8 +3,9 @@ import { Outlet } from 'react-router-dom'
 const HomeLayout = () => {
 	return (
 		<div>
-			<h1>Home</h1>
+			<nav>nav</nav>
 			<Outlet />
+			<footer>footer</footer>
 		</div>
 	)
 }
