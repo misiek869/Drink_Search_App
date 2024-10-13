@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import {
 	HomeLayout,
@@ -10,16 +9,31 @@ import {
 } from './pages'
 
 const router = createBrowserRouter([
-	{ path: '/', element: <HomeLayout /> },
 	{
-		path: '/about',
-		element: <About />,
+		path: '/',
+		element: <HomeLayout />,
+		children: [
+			{
+				path: 'landing',
+				element: <Landing />,
+			},
+			{
+				path: 'cocktail',
+				element: <Cocktail />,
+			},
+			{
+				path: 'newsletter',
+				element: <Newsletter />,
+			},
+			{
+				path: 'about',
+				element: <About />,
+			},
+		],
 	},
 ])
 
 function App() {
-	const [count, setCount] = useState(0)
-
 	return <RouterProvider router={router}></RouterProvider>
 }
 
