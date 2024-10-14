@@ -56,6 +56,7 @@ const Wrapper = styled.nav`
 			padding: 0.5rem 2rem;
 			border-radius: 10px;
 			gap: 1rem;
+			border: 1px solid var(--grey-200);
 		}
 	}
 `
