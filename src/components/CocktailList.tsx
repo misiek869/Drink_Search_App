@@ -1,4 +1,5 @@
 import Wrapper from '../assets/wrappers/CocktailListWrapper'
+import CocktailCard from './CocktailCard'
 
 type Drink = {
 	idDrink: number
@@ -36,7 +37,7 @@ const CocktailList = ({ drinks }: CocktailListProps) => {
 	return (
 		<Wrapper>
 			{formattedDrinks.map(item => {
-				return
+				return <CocktailCard key={item.id} {...item} />
 			})}
 		</Wrapper>
 	)
