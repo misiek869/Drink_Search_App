@@ -17,7 +17,9 @@ const Error = () => {
 					<img src={img} alt='404 error image' />
 					<h4>Upss</h4>
 					<p>Something went wrong</p>
-					<Link to={'/'}>Back Home</Link>
+					<Link className='btn' to={'/'}>
+						Back Home
+					</Link>
 				</div>
 			</Wrapper>
 		)
