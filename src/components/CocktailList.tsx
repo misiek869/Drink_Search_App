@@ -1,7 +1,7 @@
 import Wrapper from '../assets/wrappers/CocktailListWrapper'
 import CocktailCard from './CocktailCard'
 
-type Drink = {
+export type Drink = {
 	idDrink: number
 	strDrink: string
 	strDrinkThumb: string
