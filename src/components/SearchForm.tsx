@@ -1,7 +1,11 @@
 import Wrapper from '../assets/wrappers/SearchFormWrapper'
 import { Form, useNavigation } from 'react-router-dom'
 
-const SearchForm = () => {
+type SearchFormProps = {
+	searchTerm: string
+}
+
+const SearchForm = ({ searchTerm }: SearchFormProps) => {
 	const navigation = useNavigation()
 	const isSearching = navigation.state === 'submitting'
 
@@ -11,7 +15,7 @@ const SearchForm = () => {
 				<input
 					type='search'
 					name='search'
-					defaultValue={'vodka'}
+					defaultValue={searchTerm}
 					className='form-input'
 				/>
 				<button className='btn' type='submit' disabled={isSearching}>
