@@ -1,4 +1,4 @@
-import { useLoaderData, Link } from 'react-router-dom'
+import { useLoaderData, Link, Navigate } from 'react-router-dom'
 import axios from 'axios'
 import Wrapper from '../assets/wrappers/CocktailPageWrapper'
 import { Drink } from '../components/CocktailList'
@@ -19,6 +19,9 @@ export const loader = async ({ params }: { params: LoaderParams }) => {
 
 const Cocktail = () => {
 	const { data } = useLoaderData()
+
+	if (!data) return <Navigate to={'/'} />
+
 	const singleDrink = data.drinks[0]
 
 	const {
@@ -37,13 +40,19 @@ const Cocktail = () => {
 	return (
 		<Wrapper>
 			<header>
-				<Link to={'/'}>back home</Link>
-				<h3>{name}</h3>
+				<Link className='btn' to={'/'}>
+					back home
+				</Link>
+				<h3>{name} Drink</h3>
 			</header>
 
 			<div className='drink'>
 				<img className='img' src={image} alt={name} />
 				<div className='drink-info'>
+					<p>
+						<span className='drink-data'>name: </span>
+						{name}
+					</p>
 					<p>
 						<span className='drink-data'>category: </span>
 						{category}
@@ -60,7 +69,7 @@ const Cocktail = () => {
 						<span className='drink-data'>ingredients: </span>
 						{ingredients.map((item, index) => {
 							return (
-								<span key={index}>
+								<span className='ing' key={index}>
 									{item[1]}
 									{index < ingredients.length - 1 ? ', ' : ''}
 								</span>
