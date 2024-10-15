@@ -33,7 +33,7 @@ const CocktailList = ({ drinks }: CocktailListProps) => {
 		}
 	})
 
-	return <div></div>
+	return <Wrapper></Wrapper>
 }
 
 export default CocktailList
