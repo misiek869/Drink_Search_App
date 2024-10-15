@@ -30,10 +30,10 @@ const router = createBrowserRouter([
 				loader: singleCocktailLoader,
 				element: <Cocktail />,
 			},
-			{
-				path: 'newsletter',
-				element: <Newsletter />,
-			},
+			// {
+			// 	path: 'newsletter',
+			// 	element: <Newsletter />,
+			// },
 			{
 				path: 'about',
 				element: <About />,
