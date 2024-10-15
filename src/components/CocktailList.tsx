@@ -1,4 +1,4 @@
-import React from 'react'
+import Wrapper from '../assets/wrappers/CocktailListWrapper'
 
 type Drink = {
 	idDrink: number
@@ -33,7 +33,13 @@ const CocktailList = ({ drinks }: CocktailListProps) => {
 		}
 	})
 
-	return <Wrapper></Wrapper>
+	return (
+		<Wrapper>
+			{formattedDrinks.map(item => {
+				return
+			})}
+		</Wrapper>
+	)
 }
 
 export default CocktailList
