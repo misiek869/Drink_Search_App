@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Cocktail = () => {
-	return <div></div>
+	return <div>Cocktail</div>
 }
 
 export default Cocktail
