@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { IoMoon, IoSunnyOutline } from 'react-icons/io5'
+import Wrapper from '../assets/wrappers/ThemeToggleWrapper'
 
 const ThemeToggle = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState<boolean>()
@@ -14,14 +15,19 @@ const ThemeToggle = () => {
 		document.body.classList.toggle('dark-theme', isDarkTheme)
 	}, [isDarkTheme])
 
+	useEffect(() => {
+		const storedTheme = localStorage.getItem('darkTheme')
+		setIsDarkTheme(storedTheme === 'true')
+	}, [])
+
 	return (
-		<button className='theme-btn' onClick={toggleDarkTheme} type='button'>
+		<Wrapper className='theme-btn' onClick={toggleDarkTheme} type='button'>
 			{isDarkTheme ? (
 				<IoSunnyOutline className='theme-icon' />
 			) : (
 				<IoMoon className='theme-icon' />
 			)}
-		</button>
+		</Wrapper>
 	)
 }
 
