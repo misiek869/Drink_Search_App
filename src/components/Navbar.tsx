@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import Wrapper from '../assets/wrappers/NavbarWrapper'
+import ThemeToggle from './ThemeToggle'
 
 const Navbar = () => {
 	return (
@@ -18,6 +19,7 @@ const Navbar = () => {
 					{/* <NavLink className='nav-link' to='/newsletter'>
 						Newsletter
 					</NavLink> */}
+					<ThemeToggle />
 				</div>
 			</div>
 		</Wrapper>
