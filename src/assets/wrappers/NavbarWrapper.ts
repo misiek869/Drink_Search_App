@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.nav`
-	background: var(--white);
+	background: var(--backgroundColo);
+	border-bottom: 1px solid var(--primary-500);
 	.nav-center {
 		width: var(--view-width);
 		max-width: var(--max-width);
