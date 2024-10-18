@@ -4,15 +4,16 @@ import Wrapper from '../assets/wrappers/CocktailPageWrapper'
 import { useQuery } from '@tanstack/react-query'
 import { QueryClient } from '@tanstack/react-query'
 import { Drink } from '../components/CocktailList'
+import { LoaderFunctionArgs } from 'react-router-dom'
 
 const singleCocktailUrl =
 	'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
 
-interface LoaderParams {
-	id: number
-}
+// interface LoaderParams {
+// 	id: string
+// }
 
-const cocktailPageQuery = (id: number) => {
+const cocktailPageQuery = (id: string) => {
 	return {
 		queryKey: ['cocktail', id],
 		queryFn: async () => {
@@ -24,14 +25,17 @@ const cocktailPageQuery = (id: number) => {
 
 export const loader =
 	(queryClient: QueryClient) =>
-	async ({ params }: { params: LoaderParams }) => {
-		const { id } = params
+	async ({ params }: LoaderFunctionArgs): Promise<{ id: string }> => {
+		const id = params.id
+		if (!id) {
+			throw new Error('Missing cocktail id')
+		}
 		await queryClient.ensureQueryData(cocktailPageQuery(id))
 		return { id }
 	}
 
 const Cocktail = () => {
-	const { id } = useLoaderData() as LoaderParams
+	const { id } = useLoaderData() as { id: string }
 	const { data } = useQuery(cocktailPageQuery(id)) as {
 		data: { drinks: Drink[] } | undefined
 	}
