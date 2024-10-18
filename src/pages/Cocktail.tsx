@@ -68,14 +68,6 @@ const Cocktail = () => {
 						{category}
 					</p>
 					<p>
-						<span className='drink-data'>info: </span>
-						{info}
-					</p>
-					<p>
-						<span className='drink-data'>glass: </span>
-						{glass}
-					</p>
-					<p>
 						<span className='drink-data'>ingredients: </span>
 						{ingredients.map((item, index) => {
 							return (
@@ -89,6 +81,14 @@ const Cocktail = () => {
 					<p>
 						<span className='drink-data'>instructions: </span>
 						{instructions}
+					</p>
+					<p>
+						<span className='drink-data'>glass: </span>
+						{glass}
+					</p>
+					<p>
+						<span className='drink-data'>more info: </span>
+						{info}
 					</p>
 				</div>
 			</div>

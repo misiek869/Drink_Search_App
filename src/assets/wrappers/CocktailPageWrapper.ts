@@ -1,11 +1,18 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-	header {
-		margin-bottom: 2rem;
+	background: var(--grey-200);
+	padding: 1rem 2rem;
+	border: 1px solid var(--grey-300);
+	border-radius: var(--borderRadius);
+	box-shadow: var(--shadow-3);
 
-		.btn {
-			margin-bottom: 1rem;
+	header {
+		margin-bottom: 4rem;
+		text-align: center;
+
+		h3 {
+			font-weight: 600;
 		}
 	}
 	.img {
@@ -14,7 +21,7 @@ const Wrapper = styled.div`
 	}
 
 	.drink-info {
-		padding-top: 2rem;
+		/* padding-top: 1rem; */
 	}
 
 	.drink-info p {
@@ -28,15 +35,25 @@ const Wrapper = styled.div`
 		margin-right: 0.5rem;
 		font-weight: 700;
 		background-color: var(--primary-500);
-		padding: 0.25rem 0.5rem;
+		padding: 0.35rem 0.75rem;
 		border-radius: var(--borderRadius);
 		color: var(--grey-100);
 		letter-spacing: 1px;
+		text-align: center;
 	}
 
 	.ing {
 		display: inline-block;
 		margin-right: 0.5rem;
+	}
+
+	.back-home-btn {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 4rem;
+		.btn {
+			padding: 0.75rem 1.5rem;
+		}
 	}
 
 	@media (min-width: 992px) {
