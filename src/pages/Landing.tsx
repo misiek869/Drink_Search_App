@@ -7,6 +7,10 @@ import { QueryClient } from '@tanstack/react-query'
 
 const drinkApi = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 
+interface LoaderData {
+	searchTerm: string
+}
+
 const searchCocktailQuery = (searchTerm: string) => {
 	return {
 		queryKey: ['search', searchTerm || 'all'],
@@ -19,7 +23,7 @@ const searchCocktailQuery = (searchTerm: string) => {
 
 export const loader =
 	(queryClient: QueryClient) =>
-	async ({ request }) => {
+	async ({ request }: { request: Request }): Promise<LoaderData> => {
 		console.log(request)
 		const url = new URL(request.url)
 		const searchTerm = url.searchParams.get('search') || 'vodka'
@@ -28,7 +32,8 @@ export const loader =
 	}
 
 const Landing = () => {
-	const { searchTerm } = useLoaderData()
+	const { searchTerm } = useLoaderData() as LoaderData
+
 	const { data: drinks } = useQuery(searchCocktailQuery(searchTerm))
 
 	return (
