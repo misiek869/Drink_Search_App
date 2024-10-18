@@ -1,7 +1,6 @@
 import { useLoaderData, Link, Navigate } from 'react-router-dom'
 import axios from 'axios'
 import Wrapper from '../assets/wrappers/CocktailPageWrapper'
-import { Drink } from '../components/CocktailList'
 import { useQuery } from '@tanstack/react-query'
 
 const singleCocktailUrl =
