@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.article`
-	background: var(--grey-100);
+	background: var(--grey-200);
 	box-shadow: var(--shadow-2);
 	transition: var(--transition);
 	display: grid;
