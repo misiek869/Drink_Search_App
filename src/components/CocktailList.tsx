@@ -7,6 +7,8 @@ export type Drink = {
 	strDrinkThumb: string
 	strAlcoholic: string
 	strGlass: string
+	strInstructions: string
+	strCategory: string
 }
 
 type CocktailListProps = {
