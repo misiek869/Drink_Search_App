@@ -2,15 +2,16 @@ import { useLoaderData, Link, Navigate } from 'react-router-dom'
 import axios from 'axios'
 import Wrapper from '../assets/wrappers/CocktailPageWrapper'
 import { useQuery } from '@tanstack/react-query'
+import { QueryClient } from '@tanstack/react-query'
 
 const singleCocktailUrl =
 	'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
 
 interface LoaderParams {
-	id: string
+	id: number
 }
 
-const cocktailPageQuery = id => {
+const cocktailPageQuery = (id: number) => {
 	return {
 		queryKey: ['cocktail', id],
 		queryFn: async () => {
@@ -21,7 +22,7 @@ const cocktailPageQuery = id => {
 }
 
 export const loader =
-	queryClient =>
+	(queryClient: QueryClient) =>
 	async ({ params }: { params: LoaderParams }) => {
 		const { id } = params
 		await queryClient.ensureQueryData(cocktailPageQuery(id))
@@ -29,7 +30,7 @@ export const loader =
 	}
 
 const Cocktail = () => {
-	const { id } = useLoaderData()
+	const { id } = useLoaderData() as LoaderParams
 	const { data } = useQuery(cocktailPageQuery(id))
 
 	if (!data) return <Navigate to={'/'} />

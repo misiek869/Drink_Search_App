@@ -3,10 +3,11 @@ import axios from 'axios'
 import CocktailList from '../components/CocktailList'
 import SearchForm from '../components/SearchForm'
 import { useQuery } from '@tanstack/react-query'
+import { QueryClient } from '@tanstack/react-query'
 
 const drinkApi = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 
-const searchCocktailQuery = searchTerm => {
+const searchCocktailQuery = (searchTerm: string) => {
 	return {
 		queryKey: ['search', searchTerm || 'all'],
 		queryFn: async () => {
@@ -17,8 +18,9 @@ const searchCocktailQuery = searchTerm => {
 }
 
 export const loader =
-	queryClient =>
+	(queryClient: QueryClient) =>
 	async ({ request }) => {
+		console.log(request)
 		const url = new URL(request.url)
 		const searchTerm = url.searchParams.get('search') || 'vodka'
 		await queryClient.ensureQueryData(searchCocktailQuery(searchTerm))
