@@ -3,6 +3,7 @@ import axios from 'axios'
 import Wrapper from '../assets/wrappers/CocktailPageWrapper'
 import { useQuery } from '@tanstack/react-query'
 import { QueryClient } from '@tanstack/react-query'
+import { Drink } from '../components/CocktailList'
 
 const singleCocktailUrl =
 	'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
@@ -31,7 +32,9 @@ export const loader =
 
 const Cocktail = () => {
 	const { id } = useLoaderData() as LoaderParams
-	const { data } = useQuery(cocktailPageQuery(id))
+	const { data } = useQuery(cocktailPageQuery(id)) as {
+		data: { drinks: Drink[] } | undefined
+	}
 
 	if (!data) return <Navigate to={'/'} />
 
